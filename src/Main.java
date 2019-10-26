@@ -54,6 +54,53 @@ public class Main {
                     System.out.println(counter + " pets have been added.");
                     break;
                 case 5:
+                    Scanner sc1= new Scanner(System.in);
+                    System.out.print("Select pet name: ");
+                    String pickName = sc1.nextLine();
+                    boolean found = false;
+                    for(PetEntry p : pet){
+                        if(p.name.equals(pickName)){
+                            System.out.println("-----------------------------------------------------------------");
+                            System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                            System.out.printf(
+                                    "|%3s | %-10s|%4s |\n",
+                                    p.getID(),
+                                    p.getName(),
+                                    p.getAge()
+
+                            );
+                            found = true;
+                        }
+                    }
+                    if(!found){
+                        System.out.println("No pet with that name.");
+                    }
+                    break;
+
+                case 6:
+                    Scanner sc2= new Scanner(System.in);
+                    System.out.print("Select pet age: ");
+                    int pickAge = sc2.nextInt();
+                    boolean isFound= false;
+                    for(PetEntry p : pet){
+                        if(p.age==pickAge){
+                            System.out.println("-----------------------------------------------------------------");
+                            System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                            System.out.printf(
+                                    "|%3s | %-10s|%4s |\n",
+                                    p.getID(),
+                                    p.getName(),
+                                    p.getAge()
+
+                            );
+                            isFound = true;
+                        }
+                    }
+                    if(!isFound){
+                        System.out.println("No pet with that name.");
+                    }
+                    break;
+                case 7:
                     isRunning = false;
                     break;
                 default:

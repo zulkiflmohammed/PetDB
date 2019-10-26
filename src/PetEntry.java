@@ -2,9 +2,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PetEntry {
     private static final AtomicInteger count = new AtomicInteger(0);
-    private int ID;
-    private int age;
-    private String name;
+    public int ID;
+    public int age;
+    public String name;
 
     public PetEntry(String name, int age) {
         this.ID = count.incrementAndGet();
