@@ -16,18 +16,18 @@ public class Main {
             int userChoice= myScanner.nextInt();
             switch (userChoice) {
                 case 1:
-                    System.out.println("-----------------------------------------------------------------");
-//                    System.out.printf("%-30s %10s %10s %10s\n", "ID", "Name", "Age", "Quantity");
-                    System.out.println("-----------------------------------------------------------------");
+                    System.out.println("--------------------------");
+                    System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                    System.out.println("--------------------------");
                     for (PetEntry pets: pet) {
                         System.out.printf(
                                 "|%3s | %-10s|%4s |\n",
                                 pets.getID(),
                                 pets.getName(),
-                                pets.getAge(),
                                 pets.getAge()
-
                         );
+                        System.out.println("--------------------------");
+
                     }
                     break;
                 case 2:
@@ -53,15 +53,92 @@ public class Main {
                     }
                     System.out.println(counter + " pets have been added.");
                     break;
+                case 3:
+                    Scanner sc4= new Scanner(System.in);
+                    System.out.println("--------------------------");
+                    System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                    System.out.println("--------------------------");
+                    for (PetEntry pets: pet) {
+                        System.out.printf(
+                                "|%3s | %-10s|%4s |\n",
+                                pets.getID(),
+                                pets.getName(),
+                                pets.getAge()
+                        );
+                        System.out.println("--------------------------");
+
+                    }
+
+                    System.out.println("Enter the pet ID you want to update: ");
+                    int updateID= sc4.nextInt();
+
+                    PetEntry pUpdate= pet.get(updateID-1);
+
+
+                    System.out.println("Enter new name and age: ");
+//                    String updatedPet= sc4.nextLine();
+
+//                    Scanner updated= new Scanner(updatedPet);
+                    String newName= sc4.next();
+                    int newAge= sc4.nextInt();
+
+                    System.out.println(pUpdate.getName() +" " + pUpdate.getAge() + " changed to " + newName + " " + newAge );
+
+                    pUpdate.setAge(newAge);
+                    pUpdate.setName(newName);
+//                    for(PetEntry p : pet){
+//                        if(p.ID == updateID){
+//                            String name= p.getName();
+//                            int age= p.getAge();
+//
+//                            System.out.println("Enter new name and age: ");
+//                            String updatedPet= sc4.nextLine();
+//
+//                            Scanner updated= new Scanner(updatedPet);
+//                            String newName= updated.next();
+//                            int newAge= updated.nextInt();
+//                            p.setAge(newAge);
+//                            p.setName(newName);
+//
+//                            System.out.println(name +" " + age + "changed to " + updatedPet );
+//
+//                        }
+//                    }
+                    break;
+                case 4:
+                    Scanner sc3= new Scanner(System.in);
+                    System.out.println("--------------------------");
+                    System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                    System.out.println("--------------------------");
+                    for (PetEntry pets: pet) {
+                        System.out.printf(
+                                "|%3s | %-10s|%4s |\n",
+                                pets.getID(),
+                                pets.getName(),
+                                pets.getAge()
+                        );
+                        System.out.println("--------------------------");
+
+                    }
+
+                    System.out.println("Enter the pet ID you want to remove: ");
+                    int removeID= sc3.nextInt();
+
+                    PetEntry pRemove= pet.get(removeID-1);
+                    System.out.println(pRemove.getName() + " " + pRemove.getAge() + " has been removed");
+
+                    pet.remove(removeID-1);
+                    break;
                 case 5:
                     Scanner sc1= new Scanner(System.in);
                     System.out.print("Select pet name: ");
                     String pickName = sc1.nextLine();
                     boolean found = false;
+                    System.out.println("--------------------------");
+                    System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                    System.out.println("--------------------------");
                     for(PetEntry p : pet){
                         if(p.name.equals(pickName)){
-                            System.out.println("-----------------------------------------------------------------");
-                            System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
                             System.out.printf(
                                     "|%3s | %-10s|%4s |\n",
                                     p.getID(),
@@ -69,6 +146,7 @@ public class Main {
                                     p.getAge()
 
                             );
+                            System.out.println("--------------------------");
                             found = true;
                         }
                     }
@@ -82,10 +160,13 @@ public class Main {
                     System.out.print("Select pet age: ");
                     int pickAge = sc2.nextInt();
                     boolean isFound= false;
+                    System.out.println("--------------------------");
+                    System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+                    System.out.println("--------------------------");
+
                     for(PetEntry p : pet){
                         if(p.age==pickAge){
-                            System.out.println("-----------------------------------------------------------------");
-                            System.out.printf("|%3s | %-10s|%4s |\n", "ID", "Name", "Age");
+
                             System.out.printf(
                                     "|%3s | %-10s|%4s |\n",
                                     p.getID(),
@@ -93,6 +174,8 @@ public class Main {
                                     p.getAge()
 
                             );
+                            System.out.println("--------------------------");
+
                             isFound = true;
                         }
                     }
