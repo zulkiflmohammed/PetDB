@@ -1,25 +1,18 @@
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class PetEntry {
-    private static final AtomicInteger count = new AtomicInteger(0);
-    public int ID;
+public class Pet {
+//    private static final AtomicInteger count = new AtomicInteger(0);
+//    public int ID;
     public int age;
     public String name;
 
-    public PetEntry(String name, int age) {
-        this.ID = count.incrementAndGet();
+    public Pet(String name, int age) {
+//        this.ID = count.incrementAndGet();
         this.age = age;
         this.name = name;
     }
 
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public int getAge() {
         return age;
